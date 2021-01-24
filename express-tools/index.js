@@ -4,4 +4,10 @@ const removeSubstring = (string, substring) => {
     return seperatedString;
 }
 
-module.exports = removeSubstring;
+const urlToFilename = url => {
+    let removedSpecialChars = url.replace(/[\/\\\:\s]/g, '');
+    let removeHypertext = removedSpecialChars.replace(/^(https|http)/g, '');
+    return removeHypertext.replace(/(.com)/g, '');
+}
+
+module.exports = {removeSubstring, urlToFilename};
